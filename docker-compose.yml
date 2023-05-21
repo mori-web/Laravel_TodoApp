@@ -99,6 +99,18 @@ services:
             - '/dev/shm:/dev/shm'
         networks:
             - sail
+    phpmyadmin:
+        image: 'phpmyadmin/phpmyadmin'
+        links:
+            - mysql:mysql
+        ports:
+            - 58888:80
+        environment:
+            MYSQL_USERNAME: '${DB_USERNAME}'
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            PMA_HOST: mysql
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
@@ -108,4 +120,6 @@ volumes:
     sail-redis:
         driver: local
     sail-meilisearch:
+        driver: local
+    sail-phpmyadmin:  
         driver: local
