@@ -36,11 +36,16 @@ require __DIR__ . '/auth.php';
 /*------------------------------------------------------------
 オリジナル
 ------------------------------------------------------------*/
-
+// ダミールート
 Route::get('/test', [TestController::class, 'test'])->name('test');
-
-
 Route::get('/about/{id}', [TestController::class, 'show']);
-Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 
+
+// 新規投稿ルート
+Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+// 新規投稿（保存）
 Route::post('post', [PostController::class, 'store'])->name('post.store');
+
+//一覧画面ルート
+Route::get('/post', [PostController::class, 'index'])->name('post.index');
+
