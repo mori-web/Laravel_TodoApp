@@ -11,4 +11,9 @@ class TestController extends Controller
       $users = User::all();
       return view('test', compact('users'));
     }
+
+    public function show($id) {
+      $today = date('Y-m-d');
+      return view('abouts.about', ['id'=>$id, 'today'=>$today]);
+    }
 }
