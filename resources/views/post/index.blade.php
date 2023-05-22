@@ -8,11 +8,7 @@
 
   <div class="max-w-7xl mx-auto px-6">
 
-    @if (session('message'))
-      <div class="text-red-600 font-bold mt-4">
-        {{ session('message') }}
-      </div>
-    @endif
+    <x-message :message="session('message')" />
 
     {{--
     <pre>
