@@ -8,8 +8,9 @@
 
   <div class="max-w-7xl mx-auto px-6">
 
-    {{-- <pre>
-      <?php dd($posts);?>
+    {{--
+    <pre>
+      <?php dd($post);?>
     </pre> --}}
 
     @foreach ($posts as $post)
@@ -23,13 +24,13 @@
       </p>
       <div class="p-4 text-sm font-semibold">
         <p>
-          {{ $post->created_at }}
+        {{ $post->created_at }} / {{ $post->user->name }}
         </p>
       </div>
     </div>
     @endforeach
 
   </div>
-  
+
 
 </x-app-layout>

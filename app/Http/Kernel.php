@@ -6,7 +6,8 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
-    /**
+    /**デフォルトで有効なミドルウェア
+     * 
      * The application's global HTTP middleware stack.
      *
      * These middleware are run during every request to your application.
@@ -23,7 +24,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
-    /**
+    /**指定したグループで有効なミドルウェア
+     * 
      * The application's route middleware groups.
      *
      * @var array<string, array<int, class-string|string>>
@@ -45,7 +47,8 @@ class Kernel extends HttpKernel
         ],
     ];
 
-    /**
+    /**設定が必要なミドルウェア
+     * 
      * The application's middleware aliases.
      *
      * Aliases may be used instead of class names to conveniently assign middleware to routes and groups.
@@ -63,5 +66,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'admin' => \App\Http\Middleware\RoleMiddleware::class,
+
     ];
 }

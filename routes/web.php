@@ -32,7 +32,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-
 /*------------------------------------------------------------
 オリジナル
 ------------------------------------------------------------*/
@@ -48,4 +47,7 @@ Route::post('post', [PostController::class, 'store'])->name('post.store');
 
 //一覧画面ルート
 Route::get('/post', [PostController::class, 'index'])->name('post.index');
+
+
+
 

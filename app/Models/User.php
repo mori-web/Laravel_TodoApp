@@ -42,4 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function posts()
+    {
+      //このコードは「1対多」の関係を表しています。つまり、現在のモデルが複数の Post モデルと関連付けられていることを示しています。hasMany() メソッドは、関連するモデルとの「1対多」の関係を定義します。このメソッドにより、現在のモデルが複数の関連するモデル（Post モデル）を持つことが示されます。
+      return $this->hasMany(Post::class);
+    }
 }
