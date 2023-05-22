@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\dd;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,23 +33,36 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
 /*------------------------------------------------------------
-オリジナル
+リソースコントローラーのルート設定
 ------------------------------------------------------------*/
-// ダミールート
-Route::get('/test', [TestController::class, 'test'])->name('test');
-Route::get('/about/{id}', [TestController::class, 'show']);
+Route::resource('post', PostController::class);
+
+// /*------------------------------------------------------------
+// オリジナル
+// ------------------------------------------------------------*/
+// // ダミールート
+// Route::get('/test', [TestController::class, 'test'])->name('test');
+// Route::get('/about/{id}', [TestController::class, 'show']);
 
 
-// 新規投稿ルート
-Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
-// 新規投稿（保存）
-Route::post('post', [PostController::class, 'store'])->name('post.store');
+// // 新規投稿ルート
+// Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+// // 新規投稿（保存）
+// Route::post('post', [PostController::class, 'store'])->name('post.store');
 
-//一覧画面ルート
-Route::get('/post', [PostController::class, 'index'])->name('post.index');
+// //一覧画面ルート
+// Route::get('/post', [PostController::class, 'index'])->name('post.index');
+// //個別一覧画面
+// Route::get('/post/show/{post}', [PostController::class, 'show'])->name('post.show');
 
+// //編集画面の表示
+// Route::get('post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+// Route::patch('post/{post}', [PostController::class, 'update'])->name('post.update');
+
+
+// //削除
+// Route::delete('post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 
 
 
