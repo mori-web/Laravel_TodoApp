@@ -13,7 +13,9 @@ class PostController extends Controller
   public function index()
   {
     // $posts = Post::all();
-    $posts = Post::with('user')->get();
+    // $posts = Post::with('user')->get(); 
+    $posts = Post::paginate(10);
+    // dd($posts);
     return view('post.index', compact('posts'));
   }
 
@@ -81,5 +83,4 @@ class PostController extends Controller
     $request->session()->flash('message', '削除しました');
     return redirect()->route('post.index');
   }
-  
 }

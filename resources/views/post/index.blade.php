@@ -41,6 +41,10 @@
     </div>
     @endforeach
 
+    <div class="mb-4 mt-4">
+      {{ $posts->links() }}
+    </div>
+
   </div>
 
 
