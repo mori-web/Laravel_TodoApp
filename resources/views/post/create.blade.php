@@ -8,12 +8,6 @@
 
   <div class="max-w-7xl mx-auto px-6">
 
-    @if(session('message'))
-      <div class="text-red-600 font-bold mt-4">
-        {{ session('message') }}
-      </div>
-    @endif
-
     <form method="post" action="{{ route('post.store') }}">
 
       @csrf
@@ -30,6 +24,13 @@
         <label for="body" class="font-semibold mt-4">本文</label>
         <x-input-error :messages="$errors->get('body')" class="mt-2"/>
         <textarea name="body" id="body" cols="30" rows="5" class="w-auto py-2 border border-gray-300 rounded-md">{{ old('body') }}</textarea>
+      </div>
+
+      <div class="w-full flex flex-col">
+        <label for="image" class="font-semibold leading-none mt-4">画像</label>
+        <div class="mt-2">
+          <input type="file" name="image" id="image">
+        </div>
       </div>
 
       <x-primary-button class="mt-4">送信する</x-primary-button>
